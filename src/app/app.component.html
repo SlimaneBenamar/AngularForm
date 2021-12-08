@@ -1,0 +1,11 @@
+<p>
+  <mat-toolbar>
+    <span>Gestion de mes contacts</span>
+  </mat-toolbar>
+</p>
+<!-- <mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let contact of contacts" [value]="contact">
+    {{contact.name}}
+  </mat-list-option>
+</mat-selection-list> -->
+<app-add-contact (newContactEvent)="getThisContact($event)"></app-add-contact>

@@ -1,0 +1,65 @@
+<div class="row" style="flex-direction: column; width: 100%">
+    <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let contact of contacts" [value]="contact">
+            {{contact.name}}
+        </mat-list-option>
+    </mat-selection-list>
+
+    <div class="row" style="max-height: 50vh; overflow-y: auto">
+      
+      <form (ngSubmit)="onFormSubmit()"  [formGroup]="contactForm" style="width: 70%">
+        <mat-form-field class="row">
+          <mat-label for="Nom">Nom complet</mat-label>
+          <input type="text" formControlName='name' id="name" matInput>
+        </mat-form-field>
+        <mat-form-field class="row" >
+          <mat-label for="pseudo">Pseudo</mat-label>
+            <input type="text" formControlName="pseudo" id="pseudo" matInput>
+        </mat-form-field>
+        <mat-form-field class="row" >
+          <mat-label for="email">Email</mat-label>
+          <input type="text" formControlName="email" id="email" matInput>
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="!contactForm.valid">Submit</button>
+      </form>
+    </div>
+
+</div>
+
+
+<!-- <form #form="ngForm" (ngSubmit)="addContact()">
+    <mat-form-field>
+        <mat-label>Nom Complet</mat-label>
+        <input 
+        type="text"
+        [(ngModel)]="contact.name"
+        #title="ngModel"
+        name="name"
+        required
+        matInput
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Pseudo</mat-label>
+        <input 
+        type="text"
+        [(ngModel)]="contact.pseudo"
+        #title="ngModel"
+        name="pseudo"
+        matInput
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input 
+        type="text"
+        [(ngModel)]="contact.email"
+        #title="ngModel"
+        name="email"
+        required
+        matInput
+        >
+    </mat-form-field>
+        
+    <button mat-raised-button type="submit">Ajouter</button>
+</form> -->
